@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: shopora-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - FAKE_STORE_API_URL=https://fakestoreapi.com
+      - SALES_INBOX_EMAIL=sales@shopora.com
+    restart: unless-stopped
